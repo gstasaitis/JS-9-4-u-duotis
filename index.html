@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 9-4 užduotis</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+
+body {
+    height: 100vh;
+    background: black;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+button {
+    padding: 20px;
+    margin: auto;
+    justify-content: center;
+    background: grey;
+    border: 3px solid white;
+    font-size: 55px;
+    transition: .3s;
+}
+
+button:hover {
+    cursor: pointer;
+    background: white;
+}
+
+button.active {
+    background: white;
+}   
+    </style>
+</head>
+<body>
+
+    <button id="spalva">Pridėti spalvą</button>
+    <div id="boxes"></div>
+
+<script>
+const btn = document.getElementById("spalva")
+let index = 0;
+var boxes = document.getElementById("boxes")
+
+btn.addEventListener('click', function onClick(event) {
+        let randomColor = getRandomColor();
+        btn.style.backgroundColor = randomColor;
+    });
+
+    function getRandomColor() {
+        let r = getRndInteger(0, 256);
+        let g = getRndInteger(0, 256);
+        let b = getRndInteger(0, 256);
+        return `rgb(${r},${g},${b})`;
+        document.body.append(boxes)
+    }
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+</script>
+</body>
+</html>
